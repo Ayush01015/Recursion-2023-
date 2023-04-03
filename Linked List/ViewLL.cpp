@@ -10,6 +10,10 @@ class SLL{
     public:
         SLL();
         void view();
+        void view(node*);
+        void view(node*s,int&); // view from last pos
+        void view(node*s,int&,int&); // view from last pos
+        void view(int); // view from last pos
         void insertAtFirst(int);
         void insertAtLast(int);
         node* search(int);
@@ -21,14 +25,39 @@ class SLL{
 SLL::SLL(){
     start = NULL;
 }
+void SLL::view(node *r){
+    if(r==NULL)
+        return;
+    cout<<r->item<<" ";
+    view(r->next);
+}
 void SLL::view(){
-    node *t = start;
-    while(t){
-        cout<<t->item<<" ";
-        t=t->next;
+    if(start==NULL)
+        cout<<"List is Empty\n";
+    else{
+        view(start);
     }
     cout<<endl;
 }
+void SLL::view(int pos){
+    if(start==NULL)
+        cout<<"List is Empty\n";
+    else{
+        view(start,pos);
+    }
+    cout<<endl;
+}
+void SLL::view(node *s,int &pos){ //pos node from last
+    if(s==NULL){
+        return;
+    }
+    view(s->next,pos);
+    pos--;
+    if(pos==0)
+        cout<<s->item<<" ";
+}
+
+
 void SLL::insertAtLast(int data){
     node *n = new node();
     node *t = start;
@@ -111,17 +140,8 @@ int main()
     l.insertAtFirst(11);
     l.insertAtLast(9);
     l.insertAtLast(8);
-    node *s = l.search(10);
-    l.insertAfter(s,999);
-    l.view();
-    // l.deleteLastNode();
-    // l.view();
-    // l.deleteLastNode();
-    // l.view();
-    node *r = l.search(999);
-    l.deleteNode(r);
-    l.view();
     l.insertAtLast(888);
-    l.view();
+    l.view();  //All Nodes
+    l.view(1); //node from last
     return 0;
 }
