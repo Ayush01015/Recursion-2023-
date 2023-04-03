@@ -84,7 +84,15 @@ void SLL::deleteLastNode(){
         delete t;
     }
 }
-
+void SLL::deleteFirstNode(){
+    if(start == NULL)
+        cout<<"List is Empty\n";
+    else{
+        node *t = start;
+        start = t->next;
+        delete t;
+    }
+}
 int main()
 {
     
