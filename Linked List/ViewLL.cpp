@@ -48,7 +48,20 @@ void SLL::insertAtFirst(int data){
     n->next = start;
     start = n;   
 }
-
+node* SLL::search(int data){
+    if(start == NULL)
+        cout<<"List is Empty\n";
+    else{
+        node *t = start;
+        while(t){
+            if(t->item==data)
+                return t;
+            t=t->next;
+        }
+    }
+    cout<<"Data Not Found\n";
+    return NULL;
+}
 
 
 
