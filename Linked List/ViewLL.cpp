@@ -42,7 +42,12 @@ void SLL::insertAtLast(int data){
         t->next = n;
     }
 }
-
+void SLL::insertAtFirst(int data){
+    node *n = new node();
+    n->item = data;
+    n->next = start;
+    start = n;   
+}
 
 
 
