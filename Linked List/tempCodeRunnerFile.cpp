@@ -121,7 +121,5 @@ int main()
     node *r = l.search(999);
     l.deleteNode(r);
     l.view();
-    l.insertAtLast(888);
-    l.view();
     return 0;
 }
