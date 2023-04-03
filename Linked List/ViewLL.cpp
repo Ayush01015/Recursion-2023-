@@ -93,6 +93,17 @@ void SLL::deleteFirstNode(){
         delete t;
     }
 }
+void SLL::deleteNode(node *r){
+    node *t = start;
+    if(start == r){
+        start = r->next;
+    }else{
+        while(t->next!=r)
+            t=t->next;
+        t->next = r->next;
+    }
+    delete r;
+}
 int main()
 {
     
