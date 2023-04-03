@@ -106,6 +106,20 @@ void SLL::deleteNode(node *r){
 }
 int main()
 {
-    
+    SLL l;
+    l.insertAtFirst(10);
+    l.insertAtFirst(11);
+    l.insertAtLast(9);
+    l.insertAtLast(8);
+    node *s = l.search(10);
+    l.insertAfter(s,999);
+    l.view();
+    // l.deleteLastNode();
+    // l.view();
+    // l.deleteLastNode();
+    // l.view();
+    node *r = l.search(999);
+    l.deleteNode(r);
+    l.view();
     return 0;
 }
