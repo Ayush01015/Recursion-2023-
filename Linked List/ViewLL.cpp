@@ -29,7 +29,19 @@ void SLL::view(){
     }
     cout<<endl;
 }
-
+void SLL::insertAtLast(int data){
+    node *n = new node();
+    node *t = start;
+    n->item = data;
+    n->next = NULL;
+    if(start == NULL)
+        start = n;
+    else{
+        while(t->next!=NULL)
+            t=t->next;
+        t->next = n;
+    }
+}
 
 
 
