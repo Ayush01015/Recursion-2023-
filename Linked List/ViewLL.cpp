@@ -62,8 +62,12 @@ node* SLL::search(int data){
     cout<<"Data Not Found\n";
     return NULL;
 }
-
-
+void SLL::insertAfter(node *r,int data){
+    node *n = new node();
+    n->item = data;
+    n->next = r->next;
+    r->next = n;
+}
 
 
 int main()
