@@ -68,7 +68,22 @@ void SLL::insertAfter(node *r,int data){
     n->next = r->next;
     r->next = n;
 }
-
+void SLL::deleteLastNode(){
+    if(start == NULL)
+        cout<<"List is Empty\n";
+    else{
+        node *t = start, *t1 = NULL;
+        while(t->next!=NULL){
+            t1 = t;
+            t = t->next;
+        }
+        if(t1!=NULL)
+            t1->next = NULL;
+        else
+            start = NULL;
+        delete t;
+    }
+}
 
 int main()
 {
