@@ -18,6 +18,8 @@ public:
     void view(int);            // view from last pos
     node* reverse(node*);
     void reverse();
+    node* kReverse(node*);
+    node* iterativeReverse();
     void insertAtFirst(int);
     void insertAtLast(int);
     node *search(int);
@@ -73,16 +75,30 @@ node* SLL::reverse(node *s)
 {
     if (s == NULL || s->next == NULL)
         return s;
-    node *n = reverse(s->next);
+    node *head = reverse(s->next);
     s->next->next = s;
     s->next = NULL;
-    return n;
+    return head;
 }
 void SLL::reverse(){
     if(start==NULL)
         cout<<"List is Empty\n";
     else
         start = reverse(start);
+}
+node* SLL::iterativeReverse(){
+    node* prev = NULL;
+    node* curr = start;
+    node* forward = NULL;
+
+    while(curr != NULL){
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
+    }
+
+    start = prev;
 }
 void SLL::insertAtLast(int data)
 {
@@ -179,14 +195,14 @@ int main()
 {
     SLL l;
     l.insertAtFirst(10);
-    l.insertAtFirst(11);
-    l.insertAtLast(9);
-    l.insertAtLast(8);
-    l.insertAtLast(888);
-    l.view(); // All Nodes
-    // l.view(1); //node from last
+    l.insertAtLast(20);
+    l.insertAtLast(30);
+    l.insertAtLast(40);
+    l.insertAtLast(50);
+    l.view();
     l.reverse();
     l.view();
-
+    l.iterativeReverse();
+    l.view();
     return 0;
 }
